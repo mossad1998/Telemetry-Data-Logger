@@ -1,4 +1,4 @@
-#Generating source browse information for project System_Identification_V1
+#Generating source browse information for project System_Identification_V2
 
 
 #Abbreviations
@@ -27,10 +27,10 @@ build GPTM_Driver.pbi : index GPTM_Driver.xcl
 build main.pbi : index main.xcl
 build PWM_Driver.pbi : index PWM_Driver.xcl
 build UART_Driver.pbi : index UART_Driver.xcl
-build System_Identification_V1_part0.pbi : link Clock_Driver.pbi Debug_Driver.pbi GPIO_Driver.pbi
-build System_Identification_V1_part1.pbi : link GPTM_Driver.pbi main.pbi PWM_Driver.pbi
-build System_Identification_V1_part2.pbi : link UART_Driver.pbi
-build System_Identification_V1.pbd : link System_Identification_V1_part0.pbi System_Identification_V1_part1.pbi System_Identification_V1_part2.pbi
-build System_Identification_V1.pbw : browsedata System_Identification_V1.pbd
+build System_Identification_V2_part0.pbi : link Clock_Driver.pbi Debug_Driver.pbi GPIO_Driver.pbi
+build System_Identification_V2_part1.pbi : link GPTM_Driver.pbi main.pbi PWM_Driver.pbi
+build System_Identification_V2_part2.pbi : link UART_Driver.pbi
+build System_Identification_V2.pbd : link System_Identification_V2_part0.pbi System_Identification_V2_part1.pbi System_Identification_V2_part2.pbi
+build System_Identification_V2.pbw : browsedata System_Identification_V2.pbd
 
 

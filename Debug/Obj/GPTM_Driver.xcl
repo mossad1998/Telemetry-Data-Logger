@@ -1,14 +1,14 @@
-"F:\Work\Tiva_C\System_Identification\System_Identification_V1\GPTM_Driver.c"
+"F:\Work\Tiva_C\System_Identification\System_Identification_V2\GPTM_Driver.c"
 -std=c11
 -ferror-limit=0
 -fbracket-depth=512
 -MD
 -MF
-F:\Work\Tiva_C\System_Identification\System_Identification_V1\Debug\Obj\GPTM_Driver.pbi.dep
+F:\Work\Tiva_C\System_Identification\System_Identification_V2\Debug\Obj\GPTM_Driver.pbi.dep
 -o
 GPTM_Driver.pbi
 -I
-F:\Work\Tiva_C\System_Identification\System_Identification_V1
+F:\Work\Tiva_C\System_Identification\System_Identification_V2
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.4\arm\inc
 -I

@@ -16,6 +16,7 @@ void GPTM_Number_3_Intialization(void);
 void Send_Data_UART(char Data[10]);
 void New_Line_Message(void);
 float counter = 0;
+float speed = 0;
 char mesg[12];
 int j;
 int i=0;
@@ -41,50 +42,48 @@ int main()
       //To make sure all leds are off
       PIN_WRITE_DIGITAL('F',1,"LOW");
       
-      
-      PWM_Set_Duty_Cycle(0,0,'B',75);
-      
+      GPTM_Delay_Unit(1,250,"Millisecond");
+      PWM_Set_Duty_Cycle(0,0,'B',50);
       while(1)
       {       
         Enable_Timer_Number(3,"Enable");
-        GPTM_Delay_Unit(1,50,"Millisecond");
+        GPTM_Delay_Unit(1,200,"Millisecond");
         counter = Timer_Number_Counts_Capture(3);
+        speed = ((counter/8)*60000)/200;
         Enable_Timer_Number(3,"Disable");
         Timer_Number_Reset_Counts(3);
         
         char text[2];
-        sprintf(text,"%0.3f,\n", counter);
+        sprintf(text,"%0.3f,\n", speed);
         Send_Data_UART(text);
         New_Line_Message();
-      
-        //sprintf(mesg, "\r\nRPM = %d RPM", counter);
-        //printf("%s",mesg);
       }
     /*while(1)
     {
      for(i=1;i<100;i++)
      {  
        PWM_Set_Duty_Cycle(0,0,'B',i);
-          for(j=1;j<5;j++)
+          for(j=1;j<50;j++)
           {
             
               Enable_Timer_Number(3,"Enable");
-              GPTM_Delay_Unit(1,20,"Millisecond");
-              counter = Timer_Number_Counts_Capture(3)*3;
+              GPTM_Delay_Unit(1,200,"Millisecond");
+              counter = Timer_Number_Counts_Capture(3);
+              speed = ((counter/8)*60000)/200;              
               char text[10];
-              sprintf(text,"%0.3f,%d", counter,i);
+              sprintf(text,"%0.3f,%d", speed,i);
               Send_Data_UART(text);
               New_Line_Message();                                
               Enable_Timer_Number(3,"Disable");
               Timer_Number_Reset_Counts(3);
-          }       
-
-     
+          }     
+          if(i==100)
+          {
+                 PWM_Set_Duty_Cycle(0,0,'B',0);
+          }
      }
-
-        //sprintf(mesg, "\r\nRPM = %d RPM", counter);
-        //printf("%s",mesg);
     }*/
+
 }
 
 void PWM_Intialization(void)
